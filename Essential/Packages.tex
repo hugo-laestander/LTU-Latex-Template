@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Hugos Template %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Settings
+
+%   Ändra språk och snabb compile
+\documentclass[12pt]{article}     % Storlek på text i dokumentet.
+\usepackage[swedish]{babel}       % Språk. [swedish] eller [english]
+\usepackage[]{graphicx}           % Bilder. [demo] för snabb compile!
+
+%   Namnge bilagor
+\edef\bilaganamn{{"Intressant data","namn 2 osv"}}
+
+%   Extra
+%\usepackage{mhchem}              % Kemi Ekvationer.
+%\usepackage{datetime}            % Flera datum.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Packages
+
+\usepackage[utf8]{inputenc}  % Kodning av text.
+\usepackage[]{biblatex}      % Referenser.
+\pagenumbering{gobble}       % Stoppar sidnumrering på titelsida.
+
+
+\usepackage{csquotes}        % Quotes.
+\usepackage{mathtools}       % Ekvationer.
+\usepackage[]{geometry}      % Sidlayout.
+\usepackage{float}           % för [H].
+
+\bibliography{Essential/references.bib} % Källor.
+\graphicspath{{Images/}}                % Mapp för bilder.
+\usepackage[none]{hyphenat}             % Sluta dela upp ord.
+\usepackage{pgffor}                     % Loop för bilagor
+\setlength{\parindent}{0cm}             % Tar bort indent på ny rad.
+\renewcommand{\arraystretch}{1.2}       % Gör tabeller större.
+\usepackage{pdfpages}                   % Pdfs.
+\usepackage{pgfmath}                    % Används för bilaga loop
+\usepackage[font={small,it},labelfont=bf%
+,justification=centering]{caption}      % Snygg figurtext
+
+%   Hyperlänkar + färg
+\usepackage[colorlinks]{hyperref}            
+\usepackage{color}
+\definecolor{royalblue}{rgb}{0.0, 0.14, 0.4}
+\usepackage[nameinlink,noabbrev,swedish]{cleveref} % Ref ekv, fig etc
+\hypersetup{
+     colorlinks  = true,
+     linkcolor   = royalblue,          % internal links
+     citecolor   = royalblue,          % bibliography
+     filecolor   = royalblue,          % file links
+     urlcolor    = royalblue           % external links
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Bilaga loop
+
+% Kollar om det finns .tex fil annars .pdf. Från Bilaga_1 till Bilaga_99.
+% Genererar sida om det finns.
+\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,99} {%
+    \edef\FileName{Sections/Bilagor/Bilaga_\i}%
+    \IfFileExists{\FileName.tex}{%
+% Skapa .tex sida
+    \newpage%
+    \setcounter{page}{1}%
+    \section*{Bilaga \i, \pgfmathparse{\bilaganamn[\i-1]}\pgfmathresult}%
+    \input{\FileName.tex}% 
+%
+       }{\IfFileExists{\FileName.pdf}{%
+% Skapa .pdf sida
+       \newpage%
+       \setcounter{page}{1}%
+       \includepdf[pagecommand=\section*{Bilaga \i,  \pgfmathparse{\bilaganamn[\i-1]}\pgfmathresult} ,scale=0.9,offset=0mm -35]{\FileName.pdf}%
+%
+       }{}}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Creative Commons CC BY 4.0, Hugo Laestander %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

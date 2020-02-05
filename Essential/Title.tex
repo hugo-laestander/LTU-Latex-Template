@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Skapar variabler, ändra dessa!
+
+% Titel
+\def\thetitle{En Bra Titel}
+\def\theundertitle{Beskrivande Undertitel}
+
+% Bild
+\def\thefrontpage{framsida.png}
+
+% Kurs
+\def\thecourse{Kursnamn, F0000T}
+
+% Författare
+\def\theauthor{
+Namn (abcdef-7@student.ltu.se) \\
+Namn (abcdef-7@student.ltu.se) \\ 
+Namn (abcdef-7@student.ltu.se)
+}
+
+% Handledare
+\def\thesupervisor{Albert Einstein}
+
+% Institution
+\def\theinstitution{Institutionen för teknikvetenskap och matematik}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Detta genererar titelsidan
+
+\begin{titlepage}
+	\centering
+	
+	% Titel
+	{\Huge \textrm{\thetitle} \par}
+	{\Large \textrm{\theundertitle} \par}
+	\vspace{0.8cm}
+	
+	% Bild, ändra "height" om bilden för stor/liten
+	\includegraphics[height=0.45\textwidth]{\thefrontpage}\par
+	\texttt{\thecourse}\par
+	\vspace{0.8cm}
+	
+	% Namn
+	{\textbf{Författare:} \par}
+	{\large \theauthor\par} % Ta bort \large ifall de behövs
+	\vspace{0.8cm}
+	\textbf{Handledare:}\par
+	\large{\thesupervisor}  % Ta bort \large ifall de behövs
+	\vfill
+	
+	% logga, datum
+    \includegraphics[width=0.2\textwidth]{Images/ltu_swe.jpg} \\
+    \vspace{0.2cm}
+    \textrm{\theinstitution} \\
+	{\large \textrm{\today}\par}
+\end{titlepage}

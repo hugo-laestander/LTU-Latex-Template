@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Packages
+\input{Essential/Packages.tex}
+\begin{document}
+
+%%%   Title
+\newgeometry{top=3cm, hmargin=0cm, bottom=1.5cm}
+\input{Essential/Title.tex}
+\restoregeometry
+\pagenumbering{roman} % Romersk siffernumrering
+\setcounter{page}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%   Sections
+% Radera filer i "Sections/" som ej behövs. 
+% Då försvinner de automatiskt ur dokumentet.
+
+\IfFileExists{Sections/Sammanfattning.tex}{
+\section*{Sammanfattning}
+\input{Sections/Sammanfattning.tex}
+}{}
+
+\IfFileExists{Sections/Abstract.tex}{
+\section*{Abstract}
+\input{Sections/Abstract.tex}
+}{}
+
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}  % Startar sidnumrering
+
+\IfFileExists{Sections/Beteckningar.tex}{
+\section*{Beteckningar}
+\input{Sections/Beteckningar.tex}
+}{}
+
+\IfFileExists{Sections/Inledning.tex}{
+\newpage
+\section{Inledning}
+\input{Sections/Inledning.tex}
+}{}
+
+\IfFileExists{Sections/Teori.tex}{
+%\newpage
+\section{Teori}
+\input{Sections/Teori.tex}
+}{}
+
+\IfFileExists{Sections/Metod.tex}{
+%\newpage
+\section{Metod}
+\input{Sections/Metod.tex}
+}{}
+
+\IfFileExists{Sections/Resultat.tex}{
+%\newpage
+\section{Resultat}
+\input{Sections/Resultat.tex}
+}{}
+
+\IfFileExists{Sections/Diskussion.tex}{
+%\newpage
+\section{Diskussion och slutsatser}
+\input{Sections/Diskussion.tex}
+}{}
+
+%\newpage
+\printbibliography
+
+
+%%%   Bilagor
+% Skapa nya filer i "Sections/Bilagor/"
+% som heter Bilaga_1, Bilaga_2, ... Så läggs de in automatiskt.
+% Funkar för .tex och .pdf.
+\IfFileExists{Sections/Bilagor/Bilaga_1.tex}{\bilagaloop}
+{\IfFileExists{Sections/Bilagor/Bilaga_1.pdf}{\bilagaloop}{}}
+% Koden kollar ifall den första filen finns, annars körs den ej :)
+
+
+\end{document}
