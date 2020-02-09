@@ -4,11 +4,8 @@
 %%%   Settings
 
 %   Ändra språk och snabb compile
-\usepackage[swedish]{babel}       % Språk. [swedish] eller [english]
+\usepackage[swedish]{babel}       % Språk. [swedish] eller [english].
 \usepackage[]{graphicx}           % Bilder. [demo] för snabb compile!
-
-%   Namnge bilagor
-\edef\bilaganamn{{"Intressant data","namn 2 osv"}}
 
 %   Extra
 %\usepackage{mhchem}              % Kemi Ekvationer.
@@ -20,31 +17,36 @@
 %%%   Packages
 
 \usepackage[utf8]{inputenc}  % Kodning av text.
-\usepackage[]{biblatex}      % Referenser.
+\usepackage[]{biblatex}      % Referenser. [style=apa]
 \pagenumbering{gobble}       % Stoppar sidnumrering på titelsida.
-
 
 \usepackage{csquotes}        % Quotes.
 \usepackage{mathtools}       % Ekvationer.
 \usepackage[]{geometry}      % Sidlayout.
-\usepackage{float}           % för [H].
+\usepackage{float}           % För [H].
+\usepackage[T1]{fontenc}     % Bra för åäö. Kopiering.
 
-\bibliography{Essential/references.bib} % Källor.
+
+\bibliography{Essential/References.bib} % Mapp för Källor.
 \graphicspath{{Images/}}                % Mapp för bilder.
-\usepackage[none]{hyphenat}             % Sluta dela upp ord.
-\usepackage{pgffor}                     % Loop för bilagor
+\usepackage[none]{hyphenat}             % Slutar dela upp ord.
+\usepackage{pgffor}                     % Loop för bilagor.
+\usepackage{pgfmath}                    % Används i bilagaloop.
 \setlength{\parindent}{0cm}             % Tar bort indent på ny rad.
 \renewcommand{\arraystretch}{1.2}       % Gör tabeller större.
 \usepackage{pdfpages}                   % Pdfs.
-\usepackage{pgfmath}                    % Används för bilaga loop
 \usepackage[font={small,it},labelfont=bf%
-,justification=centering]{caption}      % Snygg figurtext
+,justification=centering]{caption}      % Snygg figurtext.
+\setlength{\abovecaptionskip}{3pt}      % Flyttar tabelltext närmare.
+\usepackage[per-mode=symbol]{siunitx}   % si. Skriva enheter/nummer.
+\sisetup{output-decimal-marker={,},%    % si. (Ändra "{,}" till "{.}" för engelska).
+range-phrase=--,range-units=single,exponent-product=\cdot}
 
 %   Hyperlänkar + färg
-\usepackage[colorlinks]{hyperref}            
+\usepackage[colorlinks]{hyperref}
+\usepackage[nameinlink,noabbrev,swedish]{cleveref} % \cref{}
 \usepackage{color}
 \definecolor{royalblue}{rgb}{0.0, 0.14, 0.4}
-\usepackage[nameinlink,noabbrev,swedish]{cleveref} % Ref ekv, fig etc
 \hypersetup{
      colorlinks  = true,
      linkcolor   = royalblue,          % internal links
@@ -56,9 +58,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%   Bilaga loop
 
-% Kollar om det finns .tex fil annars .pdf. Från Bilaga_1 till Bilaga_99.
+% Kollar om det finns .tex fil annars .pdf. Från Bilaga_1 till Bilaga_50.
 % Genererar sida om det finns.
-\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,99} {%
+\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,50} {%
     \edef\FileName{Sections/Bilagor/Bilaga_\i}%
     \IfFileExists{\FileName.tex}{%
 % Skapa .tex sida

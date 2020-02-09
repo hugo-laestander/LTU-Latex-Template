@@ -2,19 +2,23 @@
 %%%   Packages
 \documentclass[12pt]{article}
 \input{Essential/Packages.tex}
-\begin{document}
+%   Namnge bilagor
+\edef\bilaganamn{{"Intressant data","namn 2 osv",""}}
 
 %%%   Title
+\begin{document}
 \newgeometry{top=3cm, hmargin=0cm, bottom=1.5cm}
 \input{Essential/Title.tex}
 \restoregeometry
-\pagenumbering{roman} % Romersk siffernumrering
+\pagenumbering{roman}
 \setcounter{page}{2}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%   Sections
+%%%   Sections
 % Radera filer i "Sections/" som ej behövs. 
 % Då försvinner de automatiskt ur dokumentet.
+% Vid behov, ändra titlar/filer osv nedanför.
 
 \IfFileExists{Sections/Sammanfattning.tex}{
 \section*{Sammanfattning}
@@ -29,12 +33,19 @@
 \newpage
 \tableofcontents
 \newpage
-\pagenumbering{arabic}  % Startar sidnumrering
+
+% table of contents för figurer och tabeller
+%\listoffigures
+%\listoftables
+%\newpage
 
 \IfFileExists{Sections/Beteckningar.tex}{
 \section*{Beteckningar}
 \input{Sections/Beteckningar.tex}
 }{}
+
+\newpage
+\pagenumbering{arabic}
 
 \IfFileExists{Sections/Inledning.tex}{
 \newpage
@@ -60,23 +71,23 @@
 \input{Sections/Resultat.tex}
 }{}
 
-\IfFileExists{Sections/Diskussion.tex}{
+\IfFileExists{Sections/Diskussion_s.tex}{
 %\newpage
 \section{Diskussion och slutsatser}
-\input{Sections/Diskussion.tex}
+\input{Sections/Diskussion_s.tex}
 }{}
 
 %\newpage
 \printbibliography
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%   Bilagor
 % Skapa nya filer i "Sections/Bilagor/"
-% som heter Bilaga_1, Bilaga_2, ... Så läggs de in automatiskt.
+% som heter Bilaga_1, Bilaga_2, ... Så läggs de in automatiskt!
 % Funkar för .tex och .pdf.
+% Namnge bilagor högst upp ^.
 \IfFileExists{Sections/Bilagor/Bilaga_1.tex}{\bilagaloop}
 {\IfFileExists{Sections/Bilagor/Bilaga_1.pdf}{\bilagaloop}{}}
 % Koden kollar ifall den första filen finns, annars körs den ej :)
-
 
 \end{document}

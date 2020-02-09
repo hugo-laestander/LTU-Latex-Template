@@ -1,4 +1,5 @@
-Det här är teori\cite{einstein}. \\
+Det här är teori\footfullcite{einstein}. % \cite{einstein}.
+\subsection{Underrubrik}
 Hänvisning till \cref{eq:namn}
 \begin{equation} \label{eq:namn}
     E=m \cdot c^2.
@@ -12,11 +13,11 @@ Hänvisning till \cref{tab:namn}.
     \hline
     \textbf{Storhet} & \textbf{Symbol} & \textbf{Dimension} \\
      \hline
-Energi &  $E$ & $ML^2T^{-2}$ \\
+Energi &  $E$ & \si{M.L^2.T^{2}} \\
     \hline
-Massa & $m$ & $M$ \\
+Massa & $m$ & \si{M} \\
     \hline
-Ljusets hastighet & $c$ & $LT^{-1}$ \\
+Ljusets hastighet & $c$ & \si{L.T^{-1}} \\
     \hline
     \end{tabular} 
 \end{table}

@@ -1,40 +1,43 @@
-%%%%%%%%%%%%%%% Hur man använder denna mall %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%     Hur man använder denna mall!
 
-%%%     Titelsida
+%   Titelsida
 Ändra variablerna i "Essential/Title.tex".
-% Hur titelsidan ser ut genereras längre ner i samma kod
+% Hur titelsidan ser ut genereras längre ner i samma kod.
 
-%%%     Sections
+%   Sections
 Skriv direkt i filerna "Sections/...tex".
 Radera de filer du inte vill ha. Så löser koden resten.
 % Filen main.tex skapar sections och lägger ihop allt. 
 % Vill du ändra sections eller lägga till andra filer så ändra där.
 
-%%%     Lägg till bilagor
+%   Lägg till bilagor
 Lägg in bilagor i "Sections/Bilagor/".
 Namnge dom $ "Bilaga_1", "Bilaga_2",.. $ Så läggs dom automatiskt in i dokumentet.
 Detta funkar för .tex och .pdf.
-% koden för \bilagaloop är skriven i "Essential/Packages.tex"
+% koden för \bilagaloop är skriven i "Essential/Packages.tex".
 
-%%%     Namnge bilagor
-Namnge bilagor i "Essential/Packages.tex".
+%   Namnge bilagor
+Namnge bilagor höst upp i "Sections/Main.tex".
 Lägg in namn i \edef\bilaganamn{{"namn 1","namn 2",""}}. 
 % Första namnet ges till bilaga 1, nästa namn till bilaga 2,..
 % Det blir "Bilaga 1, namn 1",.. 
 % Lägg till så många som behövs.
 
-%%%     Referenser
-Lägg till referenser i "Essential/references.bib"
+%   Referenser
+Lägg till referenser i "Essential/References.bib".
 
+%   Newpage
+Ny sida mellan varje section? Ta bort procent framför "\newpage" i "main.tex".
 
 %%% SNABB COMPILE!, --> "Essential/Packages.tex". Bra för många bilder!
 %%% Ändra språk,    --> "Essential/Packages.tex".
-%%% Fler packages,  --> "Essential/Packages.tex". Under % Extra
-%%% För många namn?,--> "Essential/Titel.tex", rad 38 och 45/48.
+%%% Fler packages,  --> "Essential/Packages.tex". Nedanför %   Extra.
+%%% Mer plats på titelsida,--> "Essential/Titel.tex", rad 38 och 45/48.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nice stuff
+%%%     Nice stuff
 
 Hänvisning till \cref{eq:namn}
 \begin{equation} \label{eq:namn}
@@ -66,3 +69,22 @@ Hänvisning till \cref{tab:namn}.
     \hline
     \end{tabular} 
 \end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%     Länkar
+
+% Generera tables
+% http://www.tablesgenerator.com/ 
+
+% Mattematiska symboler
+% http://tug.ctan.org/info/undergradmath/undergradmath.pdf
+
+% Draw symbols
+% http://detexify.kirelabs.org/classify.html 
+
+% ALLA symboler
+% http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
+
+% Skriva si enheter / nummer
+% http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/siunitx/siunitx.pdf
