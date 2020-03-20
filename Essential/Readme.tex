@@ -1,5 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%     Hur man använder denna mall!
+%-----------------------------------------------
+%%        Hur man använder denna mall!
+%-----------------------------------------------
 
 %   Titelsida
 Ändra variablerna i "Essential/Title.tex".
@@ -9,12 +10,12 @@
 Skriv direkt i filerna "Sections/...tex".
 Radera de filer du inte vill ha. Så löser koden resten.
 % Filen main.tex skapar sections och lägger ihop allt. 
-% Vill du ändra sections eller lägga till andra filer så ändra där.
+% Vill du ändra rubriker eller lägga till andra filer så ändra i main.tex.
 
 %   Lägg till bilagor
 Lägg in bilagor i "Sections/Bilagor/".
-Namnge dom $ "Bilaga_1", "Bilaga_2",.. $ Så läggs dom automatiskt in i dokumentet.
-Detta funkar för .tex och .pdf.
+Namnge dom $"Bilaga_1", "Bilaga_2",..$ så läggs dom automatiskt in i dokumentet.
+Detta funkar för .tex filer.
 % koden för \bilagaloop är skriven i "Essential/Packages.tex".
 
 %   Namnge bilagor
@@ -28,16 +29,16 @@ Lägg in namn i \edef\bilaganamn{{"namn 1","namn 2",""}}.
 Lägg till referenser i "Essential/References.bib".
 
 %   Newpage
-Ny sida mellan varje section? Ta bort procent framför "\newpage" i "main.tex".
+Vill du ha ny sida för varje section? Ta bort procent framför "\newpage" i "main.tex".
 
 %%% SNABB COMPILE!, --> "Essential/Packages.tex". Bra för många bilder!
 %%% Ändra språk,    --> "Essential/Packages.tex".
 %%% Fler packages,  --> "Essential/Packages.tex". Nedanför %   Extra.
 %%% Mer plats på titelsida,--> "Essential/Titel.tex", rad 38 och 45/48.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%     Nice stuff
+%-----------------------------------------------
+%%                 Nice stuff
+%-----------------------------------------------
 
 Hänvisning till \cref{eq:namn}
 \begin{equation} \label{eq:namn}
@@ -55,27 +56,22 @@ Hänvisning till \cref{fig:namn}.
 
 Hänvisning till \cref{tab:namn}.
 \begin{table}[H]
-\caption{Namn} \label{tab:namn}.
-\centering 
-    \begin{tabular}{|c|c|c|}
-    \hline
-    \textbf{} & \textbf{} & \textbf{} \\
-     \hline
- &  &  \\
-    \hline
- &  &  \\
-    \hline
- &  &  \\
-    \hline
-    \end{tabular} 
+\centering
+\caption{Namn} \label{tab:namn}
+\begin{tabular}{ l l l } \toprule
+\textbf{} & \textbf{} & \textbf{} \\
+\midrule
+     &  &  \\
+     &  &  \\
+     &  &  \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%     Länkar
-
-% Generera tables
-% http://www.tablesgenerator.com/ 
+%-----------------------------------------------
+%%                    Länkar
+%-----------------------------------------------
 
 % Mattematiska symboler
 % http://tug.ctan.org/info/undergradmath/undergradmath.pdf
@@ -86,5 +82,12 @@ Hänvisning till \cref{tab:namn}.
 % ALLA symboler
 % http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
 
+% Generera tabeller
+% http://www.tablesgenerator.com/ 
+
+% Hur man gör bra tabeller
+% https://inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
+
 % Skriva si enheter / nummer
 % http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/siunitx/siunitx.pdf
+

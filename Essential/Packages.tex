@@ -1,7 +1,8 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%% Hugos Template %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%   Settings
+%-----------------------------------------------
+%%            %%% Hugos Template %%%
+%-----------------------------------------------
+%%                  Settings
+%-----------------------------------------------
 
 %   Ändra språk och snabb compile
 \usepackage[swedish]{babel}       % Språk. [swedish] eller [english].
@@ -11,10 +12,9 @@
 %\usepackage{mhchem}              % Kemi Ekvationer.
 %\usepackage{datetime}            % Flera datum.
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%   Packages
+%-----------------------------------------------
+%%                  Packages
+%-----------------------------------------------
 
 \usepackage[utf8]{inputenc}  % Kodning av text.
 \usepackage[]{biblatex}      % Referenser. [style=apa]
@@ -25,40 +25,48 @@
 \usepackage[]{geometry}      % Sidlayout.
 \usepackage{float}           % För [H].
 \usepackage[T1]{fontenc}     % Bra för åäö. Kopiering.
+\usepackage{microtype}       % Fixar bättre textlayout.
 
+\usepackage[font={small,it},labelfont=bf%
+,justification=centering]{caption}      % Snygg figurtext.
+\usepackage{booktabs}                   % Snygga Tabeller
+\setlength{\abovecaptionskip}{3pt}      % Flyttar tabelltext närmare.
+\renewcommand{\arraystretch}{1.2}       % Gör tabeller större.
+\setlength{\parindent}{0cm}             % Tar bort indent på ny rad.
+\usepackage[none]{hyphenat}             % Slutar dela upp ord.
 
 \bibliography{Essential/References.bib} % Mapp för Källor.
 \graphicspath{{Images/}}                % Mapp för bilder.
-\usepackage[none]{hyphenat}             % Slutar dela upp ord.
 \usepackage{pgffor}                     % Loop för bilagor.
 \usepackage{pgfmath}                    % Används i bilagaloop.
-\setlength{\parindent}{0cm}             % Tar bort indent på ny rad.
-\renewcommand{\arraystretch}{1.2}       % Gör tabeller större.
 \usepackage{pdfpages}                   % Pdfs.
-\usepackage[font={small,it},labelfont=bf%
-,justification=centering]{caption}      % Snygg figurtext.
-\setlength{\abovecaptionskip}{3pt}      % Flyttar tabelltext närmare.
-\usepackage[per-mode=symbol]{siunitx}   % si. Skriva enheter/nummer.
-\sisetup{output-decimal-marker={,},%    % si. (Ändra "{,}" till "{.}" för engelska).
-range-phrase=--,range-units=single,exponent-product=\cdot}
+\addto{\captionsswedish}{\renewcommand*%
+{\contentsname}{Innehållsförteckning}}  % Ändrar namn till Innehållsförteckning
 
-%   Hyperlänkar + färg
-\usepackage[colorlinks]{hyperref}
-\usepackage[nameinlink,noabbrev,swedish]{cleveref} % \cref{}
-\usepackage{color}
-\definecolor{royalblue}{rgb}{0.0, 0.14, 0.4}
-\hypersetup{
+\usepackage[colorlinks]{hyperref}                  % Hyperlänkar + färg
+\usepackage[nameinlink,noabbrev,swedish]{cleveref} % \cref{} & \Cref{}
+\usepackage{color}                                 % Färg
+\definecolor{royalblue}{rgb}{0.0, 0.14, 0.4}       % Egen färg
+\hypersetup{                                       % Färg på hyperlänkar
      colorlinks  = true,
-     linkcolor   = royalblue,          % internal links
+     linkcolor   = black,              % internal links
      citecolor   = royalblue,          % bibliography
      filecolor   = royalblue,          % file links
      urlcolor    = royalblue           % external links
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%   Bilaga loop
+\usepackage{matlab-prettifier}          % Matlab text!
+\usepackage[iso,swedish]{isodate}       % Iso datum
+\usepackage[per-mode=symbol]{siunitx}   % si. Skriva enheter/nummer.
+\sisetup{output-decimal-marker={,},%    % si. ("{,}" till "{.}" för engelska).
+range-phrase=--,range-units=single,exponent-product=\cdot}
 
-% Kollar om det finns .tex fil annars .pdf. Från Bilaga_1 till Bilaga_50.
+
+%-----------------------------------------------
+%%                Bilaga loop
+%-----------------------------------------------
+
+% Kollar om det finns .tex fil Från Bilaga_1 till Bilaga_50.
 % Genererar sida om det finns.
 \newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,50} {%
     \edef\FileName{Sections/Bilagor/Bilaga_\i}%
@@ -67,16 +75,10 @@ range-phrase=--,range-units=single,exponent-product=\cdot}
     \newpage%
     \setcounter{page}{1}%
     \section*{Bilaga \i, \pgfmathparse{\bilaganamn[\i-1]}\pgfmathresult}%
-    \input{\FileName.tex}% 
-%
-       }{\IfFileExists{\FileName.pdf}{%
-% Skapa .pdf sida
-       \newpage%
-       \setcounter{page}{1}%
-       \includepdf[pagecommand=\section*{Bilaga \i,  \pgfmathparse{\bilaganamn[\i-1]}\pgfmathresult} ,scale=0.9,offset=0mm -35]{\FileName.pdf}%
-%
-       }{}}}}
+    \input{\FileName.tex}%
+}{}}}
 
+\newcommand{\n}{\vskip 1em}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%% Creative Commons CC BY 4.0, Hugo Laestander %%%%%%%%%%%%%%

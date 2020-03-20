@@ -1,4 +1,4 @@
-Det här är teori\footfullcite{einstein}. % \cite{einstein}.
+Det här är\footfullcite{einstein} teori \cite{einstein}.
 \subsection{Underrubrik}
 Hänvisning till \cref{eq:namn}
 \begin{equation} \label{eq:namn}
@@ -7,19 +7,16 @@ Hänvisning till \cref{eq:namn}
 
 Hänvisning till \cref{tab:namn}.
 \begin{table}[H]
-\caption{Namn} \label{tab:namn}.
-\centering 
-    \begin{tabular}{|c|c|c|}
-    \hline
-    \textbf{Storhet} & \textbf{Symbol} & \textbf{Dimension} \\
-     \hline
-Energi &  $E$ & \si{M.L^2.T^{2}} \\
-    \hline
-Massa & $m$ & \si{M} \\
-    \hline
-Ljusets hastighet & $c$ & \si{L.T^{-1}} \\
-    \hline
-    \end{tabular} 
+\centering
+\caption{Tabellhuvud.}
+\begin{tabular}{ l l l } \toprule
+\textbf{Symbol} & \textbf{Storhet} & \textbf{Dimension} \\
+\midrule
+    $E$ & Energi & \si{M.L^2.T^{2}} \\
+    $m$ & Massa &\si{M} \\
+    $c$ & Ljusets hastighet & \si{L.T^{-1}} \\
+\bottomrule 
+\end{tabular} \label{tab:namn}
 \end{table}
 
 Hänvisning till \cref{fig:namn}.

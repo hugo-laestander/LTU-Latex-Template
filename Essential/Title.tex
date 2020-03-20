@@ -1,5 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%   Skapar variabler, ändra dessa!
+%-----------------------------------------------
+%%           Titelsida, ändra dessa!
+%-----------------------------------------------
 
 % Titel
 \def\thetitle{En Bra Titel}
@@ -24,33 +25,35 @@ Namn (abcdef-7@student.ltu.se)
 % Institution
 \def\theinstitution{Institutionen för teknikvetenskap och matematik}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%   Detta genererar titelsidan!
+
+%-----------------------------------------------
+%%             Titelsida layout
+%-----------------------------------------------
 
 \begin{titlepage}
 	\centering
 	
 	% Titel
-	{\Huge \textrm{\thetitle} \par}
-	{\Large \textrm{\theundertitle} \par}
+	{\Huge \textrm{\thetitle} \\}
+	{\Large \textrm{\theundertitle} \\}
 	\vspace{0.8cm}
 	
 	% Bild, ändra "height" om bilden för stor/liten
-	\includegraphics[height=0.45\textwidth]{\thefrontpage}\par
-	\texttt{\thecourse}\par
+	\includegraphics[height=0.45\textwidth]{\thefrontpage}\\
+	\texttt{\thecourse}\\
 	\vspace{0.8cm}
 	
 	% Namn
-	{\textbf{Författare:} \par}
-	{\large \theauthor\par} % Ta bort \large ifall de behövs
+	{\textbf{Författare:} \\}
+	{\large \theauthor\\} % Ta bort \large ifall de behövs
 	\vspace{0.8cm}
-	\textbf{Handledare:}\par
+	\textbf{Handledare:}\\
 	\large{\thesupervisor}  % Ta bort \large ifall de behövs
 	\vfill
 	
 	% logga, datum
     \includegraphics[width=0.2\textwidth]{Images/ltu_swe.jpg} \\
     \vspace{0.2cm}
-    \textrm{\theinstitution} \\
-	{\large \textrm{\today}\par}
+    \textrm{\theinstitution} \\ \vspace{0.05cm}
+	{\large \textrm{\today}\\}
 \end{titlepage}
