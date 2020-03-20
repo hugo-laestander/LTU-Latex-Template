@@ -1,21 +1,19 @@
 %-----------------------------------------------
-%%            %%% Hugos Template %%%
+%%          %%% Hugos Template 1.7 %%%
 %-----------------------------------------------
 %%                  Settings
 %-----------------------------------------------
-
 %   Ändra språk och snabb compile
 \usepackage[swedish]{babel}       % Språk. [swedish] eller [english].
 \usepackage[]{graphicx}           % Bilder. [demo] för snabb compile!
 
 %   Extra
 %\usepackage{mhchem}              % Kemi Ekvationer.
-%\usepackage{datetime}            % Flera datum.
+
 
 %-----------------------------------------------
 %%                  Packages
 %-----------------------------------------------
-
 \usepackage[utf8]{inputenc}  % Kodning av text.
 \usepackage[]{biblatex}      % Referenser. [style=apa]
 \pagenumbering{gobble}       % Stoppar sidnumrering på titelsida.
@@ -38,7 +36,6 @@
 \bibliography{Essential/References.bib} % Mapp för Källor.
 \graphicspath{{Images/}}                % Mapp för bilder.
 \usepackage{pgffor}                     % Loop för bilagor.
-\usepackage{pgfmath}                    % Används i bilagaloop.
 \usepackage{pdfpages}                   % Pdfs.
 \addto{\captionsswedish}{\renewcommand*%
 {\contentsname}{Innehållsförteckning}}  % Ändrar namn till Innehållsförteckning
@@ -61,25 +58,25 @@
 \sisetup{output-decimal-marker={,},%    % si. ("{,}" till "{.}" för engelska).
 range-phrase=--,range-units=single,exponent-product=\cdot}
 
+%-----------------------------------------------
+%%                New commands
+%-----------------------------------------------
+\newcommand{\n}{\vskip 1em}
 
 %-----------------------------------------------
 %%                Bilaga loop
 %-----------------------------------------------
-
-% Kollar om det finns .tex fil Från Bilaga_1 till Bilaga_50.
+% Kollar om det finns .tex fil Från Bilaga_1 till Bilaga_25.
 % Genererar sida om det finns.
-\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,50} {%
+\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,25} {%
     \edef\FileName{Sections/Bilagor/Bilaga_\i}%
     \IfFileExists{\FileName.tex}{%
 % Skapa .tex sida
     \newpage%
     \setcounter{page}{1}%
-    \section*{Bilaga \i, \pgfmathparse{\bilaganamn[\i-1]}\pgfmathresult}%
     \input{\FileName.tex}%
 }{}}}
 
-\newcommand{\n}{\vskip 1em}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Creative Commons CC BY 4.0, Hugo Laestander %%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Creative Commons CC BY 4.0, Hugo Laestander %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

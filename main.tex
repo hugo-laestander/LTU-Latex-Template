@@ -3,8 +3,6 @@
 %-----------------------------------------------
 \documentclass[12pt]{article}
 \input{Essential/Packages.tex}
-%   Namnge bilagor
-\edef\bilaganamn{{"namn 1","namn 2",""}}
 
 %-----------------------------------------------
 %%                   Title
@@ -19,62 +17,29 @@
 %-----------------------------------------------
 %                  Sections
 %-----------------------------------------------
-% Radera filer i "Sections/" som ej behövs. 
-% Då försvinner de automatiskt ur dokumentet.
-% Vid behov, ändra rubrik/filer osv nedanför.
-%-----------------------------------------------
-\IfFileExists{Sections/Sammanfattning.tex}{ % Kollar om fil existerar
-\section*{Sammanfattning}                   % Rubrik
-\input{Sections/Sammanfattning.tex}         % Lägger in .tex fil
-}{}
-
-\IfFileExists{Sections/Abstract.tex}{
-\section*{Abstract}
+\input{Sections/Sammanfattning.tex}
 \input{Sections/Abstract.tex}
-}{}
 
 \newpage
 \tableofcontents
 \hypersetup{linkcolor=royalblue}
-\newpage
 
-\IfFileExists{Sections/Beteckningar.tex}{
-\section*{Beteckningar}
+\newpage
 \input{Sections/Beteckningar.tex}
-}{}
 
 \newpage
 \pagenumbering{arabic}
 
-\IfFileExists{Sections/Inledning.tex}{
 \newpage
-\section{Inledning}
 \input{Sections/Inledning.tex}
-}{}
-
-\IfFileExists{Sections/Teori.tex}{
 %\newpage
-\section{Teori}
 \input{Sections/Teori.tex}
-}{}
-
-\IfFileExists{Sections/Metod.tex}{
 %\newpage
-\section{Metod}
 \input{Sections/Metod.tex}
-}{}
-
-\IfFileExists{Sections/Resultat.tex}{
 %\newpage
-\section{Resultat}
 \input{Sections/Resultat.tex}
-}{}
-
-\IfFileExists{Sections/Diskussion_s.tex}{
 %\newpage
-\section{Diskussion och slutsatser}
 \input{Sections/Diskussion_s.tex}
-}{}
 
 %\newpage
 \printbibliography
@@ -83,10 +48,9 @@
 %%                  Bilagor
 %-----------------------------------------------
 % Skapa nya filer i "Sections/Bilagor/"
-% som heter Bilaga_1.tex, Bilaga_2.tex, ... Så läggs de in automatiskt!
-% Namnge bilagor högst upp ^.
+% som heter Bilaga_1.tex, Bilaga_2.tex,..
+% Så läggs de in automatiskt!
 %-----------------------------------------------
-
 \IfFileExists{Sections/Bilagor/Bilaga_1.tex}{\bilagaloop}{}
 % Koden kollar ifall den första filen finns, annars körs den ej :)
 
