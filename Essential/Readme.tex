@@ -1,7 +1,6 @@
 %-----------------------------------------------
 %%        Hur man använder denna mall!
 %-----------------------------------------------
-
 %   Titelsida
 Ändra variablerna i "Essential/Title.tex".
 % Hur titelsidan ser ut genereras längre ner i samma kod.
@@ -12,20 +11,17 @@ Skriv direkt i filerna "Sections/...tex".
 
 %   Lägg till bilagor
 Lägg in bilagor i "Sections/Bilagor/".
-Namnge dom $"Bilaga_1", "Bilaga_2",..$ så läggs dom automatiskt in i dokumentet.
-Detta funkar för .tex filer.
+Namnge dom $"Bilaga_1.tex", "Bilaga_2.tex",..$ så läggs dom automatiskt in i dokumentet (med rätt sidnumrering).
+% Koden kollar ifall Bilaga_1.tex finns, annars körs den ej.
 % koden för \bilagaloop är skriven i "Essential/Packages.tex".
 
 %   Referenser
 Lägg till referenser i "Essential/References.bib".
 
-%   Newpage
-Vill du ha ny sida för varje section? Ta bort procent framför "\newpage" i "main.tex".
-
 %%% SNABB COMPILE!, --> "Essential/Packages.tex". Bra för många bilder!
 %%% Ändra språk,    --> "Essential/Packages.tex".
-%%% Fler packages,  --> "Essential/Packages.tex". Nedanför %   Extra.
-%%% Mer plats på titelsida,--> "Essential/Titel.tex", rad 40 och 46/49.
+%%% Fler packages,  --> "Essential/Packages.tex". Lägg till under % Extra.
+%%% Mer plats på titelsida,--> "Essential/Titel.tex", rad 39 och 45/48.
 
 %-----------------------------------------------
 %%                 Nice stuff
@@ -49,7 +45,7 @@ Hänvisning till \cref{tab:namn}.
 \begin{table}[H]
 \centering
 \caption{Namn} \label{tab:namn}
-\begin{tabular}{ l l l } \toprule
+\begin{tabular}{@{} l l l @{}} \toprule
 \textbf{} & \textbf{} & \textbf{} \\
 \midrule
      &  &  \\
@@ -63,7 +59,6 @@ Hänvisning till \cref{tab:namn}.
 %-----------------------------------------------
 %%                    Länkar
 %-----------------------------------------------
-
 % Mattematiska symboler
 % http://tug.ctan.org/info/undergradmath/undergradmath.pdf
 
@@ -82,3 +77,5 @@ Hänvisning till \cref{tab:namn}.
 % Skriva si enheter / nummer
 % http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/siunitx/siunitx.pdf
 
+% Hur man skriver en rapport
+% https://www.overleaf.com/latex/templates/lulea-university-of-technology-lab-report-template-tvm-department/xxqzqvnnfwgg
