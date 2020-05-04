@@ -1,6 +1,6 @@
-%-----------------------------------------------
-%                  Essential    
-%-----------------------------------------------
+%----------------------------------------
+%               Essential    
+%----------------------------------------
 \documentclass[12pt]{article}
 \input{Essential/Packages.tex}
 \input{Essential/Title.tex}
@@ -12,12 +12,12 @@
 \pagenumbering{roman}
 \setcounter{page}{1}
 
-%-----------------------------------------------
-%                  Sections
-%-----------------------------------------------
-% Skriv direkt i filerna i /Sections/...tex
+%-----------------------------------------
+%                Sections
+%-----------------------------------------
+% Skriv direkt i filerna i /Sections/...
 % Ändra nedanstående kod vid behov.
-%-----------------------------------------------
+%-----------------------------------------
 \input{Sections/Sammanfattning.tex}
 
 \newpage
@@ -43,12 +43,12 @@
 \newpage
 \printbibliography
 
-%-----------------------------------------------
-%                   Bilagor
-%-----------------------------------------------
+%-----------------------------------------
+%                 Bilagor
+%-----------------------------------------
 % Skapa nya filer i "Sections/Bilagor/"
 % som heter Bilaga_1.tex, Bilaga_2.tex,..
 % Så läggs de in automatiskt! :)
-%-----------------------------------------------
+%-----------------------------------------
 \IfFileExists{Sections/Bilagor/Bilaga_1.tex}{\bilagaloop}{}
 \end{document}
