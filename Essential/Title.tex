@@ -1,9 +1,15 @@
 %-----------------------------------------------
-%%           Titelsida, ändra dessa!
+%            Titelsida, ändra dessa!
 %-----------------------------------------------
+% Style
+%  Max 7 pers totalt  -> Titlestyle_Big
+%  Max 10 pers totalt  -> Titlestyle_Small
+\def\thetitlestyle{Titlestyle_Big}
+%-----------------------------------------------
+
 % Titel
 \def\thetitle{En Bra Titel}
-\def\theundertitle{Beskrivande Undertitel}
+\def\thesubtitle{Beskrivande Undertitel}
 
 % Bild
 \def\thefrontpage{framsida.png}
@@ -13,44 +19,16 @@
 
 % Författare
 \def\theauthor{
-Namn (abcdef-7@student.ltu.se) \\
-Namn (abcdef-7@student.ltu.se) \\ 
-Namn (abcdef-7@student.ltu.se)
+Richard Feynman & abcdef-7@student.ltu.se \\
+Richard Feynman & abcdef-7@student.ltu.se \\
+Richard Feynman & abcdef-7@student.ltu.se
 }
 
 % Handledare
-\def\thesupervisor{Albert Einstein}
+\def\thesupervisor{Albert Einstein & albert.einstein@ltu.se}
 
 % Institution
 \def\theinstitution{Institutionen för teknikvetenskap och matematik}
 
-%-----------------------------------------------
-%%             Titelsida layout
-%-----------------------------------------------
-\begin{titlepage}
-	\centering
-	
-	% Titel
-	{\Huge \textrm{\thetitle} \\}
-	{\Large \textrm{\theundertitle} \\}
-	\vspace{0.8cm}
-	
-	% Bild, ändra "height" om bilden för stor/liten
-	\includegraphics[height=0.45\textwidth]{\thefrontpage}\\
-	\texttt{\thecourse}\\
-	\vspace{0.8cm}
-	
-	% Namn
-	{\textbf{Författare:} \\}
-	{\large \theauthor\\} % Ta bort \large ifall de behövs
-	\vspace{0.8cm}
-	\textbf{Handledare:}\\
-	\large{\thesupervisor}  % Ta bort \large ifall de behövs
-	\vfill
-	
-	% logga, datum
-    \includegraphics[width=0.2\textwidth]{Images/ltu_swe.jpg} \\
-    \vspace{0.2cm}
-    \textrm{\theinstitution} \\ \vspace{0.05cm}
-	{\large \textrm{\today}\\}
-\end{titlepage}
+% Logga
+\def\thelogo{ltu_swe.jpg}

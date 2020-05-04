@@ -1,24 +1,24 @@
 %-----------------------------------------------
-%%                  Packages
+%                  Essential    
 %-----------------------------------------------
 \documentclass[12pt]{article}
 \input{Essential/Packages.tex}
-
-%-----------------------------------------------
-%%                   Title
-%-----------------------------------------------
-\begin{document}
-\newgeometry{top=3cm, hmargin=0cm, bottom=1.5cm}
 \input{Essential/Title.tex}
+
+\begin{document}
+\input{Essential/Style/\thetitlestyle}
 \restoregeometry
+\tolerance=2000
 \pagenumbering{roman}
-\setcounter{page}{2}
+\setcounter{page}{1}
 
 %-----------------------------------------------
 %                  Sections
 %-----------------------------------------------
+% Skriv direkt i filerna i /Sections/...tex
+% Ändra nedanstående kod vid behov.
+%-----------------------------------------------
 \input{Sections/Sammanfattning.tex}
-\input{Sections/Abstract.tex}
 
 \newpage
 \tableofcontents
@@ -44,12 +44,11 @@
 \printbibliography
 
 %-----------------------------------------------
-%%                  Bilagor
+%                   Bilagor
 %-----------------------------------------------
 % Skapa nya filer i "Sections/Bilagor/"
 % som heter Bilaga_1.tex, Bilaga_2.tex,..
 % Så läggs de in automatiskt! :)
 %-----------------------------------------------
 \IfFileExists{Sections/Bilagor/Bilaga_1.tex}{\bilagaloop}{}
-
 \end{document}

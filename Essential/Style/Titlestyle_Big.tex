@@ -1,0 +1,44 @@
+%-----------------------------------------------
+%              Titelsida layout
+%-----------------------------------------------
+
+\newgeometry{top=3cm, hmargin=0cm, bottom=1.5cm}
+\begin{titlepage}
+	\centering
+	
+	% Titel
+	{\Huge \textrm{\thetitle} \\}
+	{\Large \textrm{\thesubtitle} \\}
+	\vspace{8mm}
+	
+	% Bild, ändra "height" om bilden för stor/liten
+	\includegraphics[height=0.45\textwidth]{\thefrontpage}\\
+	\texttt{\thecourse}\\
+	\vspace{8mm}
+	
+	% Namn
+	\textbf{Författare:} \\
+	\vspace{-2.5mm}
+	\begin{table}[h]
+	\centering
+    \begin{tabular}{l l}
+	\theauthor
+    \end{tabular}
+    \end{table}
+    \vspace{1mm}
+	\textbf{Handledare:} \\
+	\vspace{-2.5mm}
+	\begin{table}[h]
+	\centering
+    \begin{tabular}{l l}
+	\thesupervisor
+    \end{tabular}
+    \end{table}
+	\vfill
+	
+	% logga, datum
+    \includegraphics[width=0.2\textwidth]{ltu_swe.jpg} \\
+    \vspace{0.2cm}
+    \textrm{\theinstitution} \\ \vspace{0.05cm}
+	{\large \textrm{\today}\\}
+\end{titlepage}

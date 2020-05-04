@@ -1,33 +1,39 @@
 %-----------------------------------------------
-%%              Hugos Template 1.13
+%          Hugos Template - 2020.05.27
 %-----------------------------------------------
-%%                  Settings
+%                   Settings
 %-----------------------------------------------
-%   Ändra språk och snabb compile
+%   Ändra språk, och snabb compile
 \usepackage[swedish]{babel}       % Språk. [swedish] eller [english].
 \usepackage[]{graphicx}           % Bilder. [demo] för snabb compile!
 
 %   Extra
-%\usepackage{mhchem}              % Kemi Ekvationer.
+%\usepackage{mhchem}              % Kemiekvationer.
 
 
 %-----------------------------------------------
-%%                  Packages
+%                   Packages
 %-----------------------------------------------
-\usepackage[utf8]{inputenc}  % Kodning av text.
-\usepackage[]{biblatex}      % Referenser. [style=apa]
+\usepackage[utf8]{inputenc}          % Kodning av text.
+\usepackage[]{biblatex}              % (Vancouver), \cite \textcite
+%..[style=authoryear-ibid]           % (Harvard), \parencite \textcite
+%..[style=apa]                       % (APA) \textcite \parencite
+%\DeclareLanguageMapping{swedish}{swedish-apa}
+
+
 \pagenumbering{gobble}       % Stoppar sidnumrering på titelsida.
-
 \usepackage{csquotes}        % Quotes.
 \usepackage{mathtools}       % Ekvationer.
 \usepackage[]{geometry}      % Sidlayout.
 \usepackage{float}           % För [H].
-\usepackage[T1]{fontenc}     % Bra för åäö. Kopiering.
+\usepackage[T1]{fontenc}     % Bra för åäö.
 \usepackage{microtype}       % Fixar bättre textlayout.
+\usepackage{comment}         % \begin{comment}.
 
 \usepackage[font={small,it},labelfont=bf%
 ,justification=centering]{caption}      % Snygg figurtext.
-\usepackage{booktabs}                   % Snygga Tabeller
+\usepackage{booktabs}                   % Snygga Tabeller.
+\usepackage{longtable}                  % Långa tabeller.
 \setlength{\abovecaptionskip}{3pt}      % Flyttar tabelltext närmare.
 \renewcommand{\arraystretch}{1.2}       % Gör tabeller större.
 \setlength{\parindent}{0cm}             % Tar bort indent på ny rad.
@@ -36,20 +42,20 @@
 \bibliography{Essential/References.bib} % Mapp för Källor.
 \graphicspath{{Images/}}                % Mapp för bilder.
 \usepackage{pgffor}                     % Loop för bilagor.
-\usepackage{pdfpages}                   % Pdfs.
-\addto{\captionsswedish}{\renewcommand*%
+\usepackage{pdfpages}                   % PDFs.
+\addto{\captionsswedish}{\renewcommand*%%
 {\contentsname}{Innehållsförteckning}}  % Ändrar namn -> Innehållsförteckning
 
-\usepackage[colorlinks]{hyperref}                  % Hyperlänkar + färg
-\usepackage[nameinlink,noabbrev,swedish]{cleveref} % \cref{} & \Cref{}
-\usepackage{color}                                 % Färg
-\definecolor{royalblue}{rgb}{0.0, 0.14, 0.4}       % Egen färg
-\hypersetup{                                       % Färg på hyperlänkar
+\usepackage[colorlinks]{hyperref}                  % Hyperlänkar + färg.
+\usepackage[nameinlink,noabbrev,swedish]{cleveref} % \cref{} & \Cref{}.
+\usepackage{color}                                 % Färg.
+\definecolor{royalblue}{rgb}{0.0, 0.14, 0.4}       % Egen färg.
+\hypersetup{                                       % Färg på hyperlänkar.
      colorlinks  = true,
-     linkcolor   = black,              % internal links
-     citecolor   = royalblue,          % bibliography
-     filecolor   = royalblue,          % file links
-     urlcolor    = royalblue           % external links
+     linkcolor   = black,              % internal links.
+     citecolor   = royalblue,          % bibliography.
+     filecolor   = royalblue,          % file links.
+     urlcolor    = royalblue           % external links.
 }
 
 \usepackage{matlab-prettifier}          % Matlab text!
@@ -58,24 +64,30 @@
 range-phrase=--,range-units=single,exponent-product=\cdot}
 
 %-----------------------------------------------
-%%                New commands
+%                 New commands                
 %-----------------------------------------------
+% Använd för radbyte.
 \newcommand{\n}{\vskip 1em}
 
-%-----------------------------------------------
-%%                Bilaga loop
-%-----------------------------------------------
-% Kollar om det finns .tex fil Från Bilaga_1 till Bilaga_25.
-% Genererar sida om det finns.
-\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,25} {%
+% Används för matlab fil.
+\newcommand{\matlabfile}[1]
+{\UseRawInputEncoding\hyphenpenalty=50\exhyphenpenalty=50\lstinputlisting[style = Matlab-editor,basicstyle = \mlttfamily]{#1}}
+
+% Använd för matlab text.
+\lstnewenvironment{matlab}
+{\UseRawInputEncoding\hyphenpenalty=50\exhyphenpenalty=50\lstset{style = Matlab-editor,basicstyle = \mlttfamily}}
+{}
+
+% Kollar om det finns .tex fil Från Bilaga_1 till Bilaga_15.
+% Genererar sida om det finns. Öka från 15 vid behov.
+\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,15} {
     \edef\FileName{Sections/Bilagor/Bilaga_\i}%
     \IfFileExists{\FileName.tex}{%
-% Skapa .tex sida
     \newpage%
     \setcounter{page}{1}%
     \input{\FileName.tex}%
 }{}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Creative Commons CC BY 4.0, Hugo Laestander %%%%
+%%  Creative Commons CC BY 4.0, Hugo Laestander %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

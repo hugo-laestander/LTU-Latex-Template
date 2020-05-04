@@ -1,10 +1,8 @@
 \section*{Bilaga 1, Matlab kod}
-
-\UseRawInputEncoding
-\begin{lstlisting}[
-  style      = Matlab-editor,
-  basicstyle = \mlttfamily,
-  ]
+%
+%\matlabfile{Sections/Bilagor/Matlab/matlabkod.m}
+%
+\begin{matlab}
 %% Code sections are highlighted.
 % System command are supported...
 !touch testFile.txt
@@ -20,15 +18,10 @@ p = properties(person); %(here, properties is a function)
 x = linspace(0,1,101);
 y = x(end:-1:1);
 % ... even in nonsensical code.
-]end()()(((end while {    end    )end ))))end (end
+]end()()(((end while {    end    )end ))))end (end}
 %{
     block comments are supported
 %} even
 runaway block comments
 are
-\end{lstlisting}
-
-%\lstinputlisting[
-% style      = Matlab-editor,
-%  basicstyle = \mlttfamily,
-%]{Sections/Bilagor/matlabkod.m}
+\end{matlab}

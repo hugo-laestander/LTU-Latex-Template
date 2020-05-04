@@ -1,5 +1,5 @@
 %-----------------------------------------------
-%%        Hur man använder denna mall!
+%         Hur man använder denna mall!
 %-----------------------------------------------
 %   Titelsida
 Ändra variablerna i "Essential/Title.tex".
@@ -17,34 +17,38 @@ Namnge dom $"Bilaga_1.tex", "Bilaga_2.tex",..$ så läggs dom automatiskt in i d
 
 %   Referenser
 Lägg till referenser i "Essential/References.bib".
+Ändra referensstil i /Essential/Packages.tex rad 18.
 
-%%% SNABB COMPILE!, --> "Essential/Packages.tex". Bra för många bilder!
-%%% Ändra språk,    --> "Essential/Packages.tex".
-%%% Fler packages,  --> "Essential/Packages.tex". Lägg till under % Extra.
-%%% Mer plats på titelsida,--> "Essential/Titel.tex", rad 39 och 45/48.
+%   Har du idéer på förbättringar?
+https://github.com/ReleaseTheKnowledge/LTU-Latex-Template/issues
+
+%%  SNABB COMPILE!, --> "Essential/Packages.tex". Bra för många bilder!
+%%  Ändra språk,    --> "Essential/Packages.tex".
+%%  Fler packages,  --> "Essential/Packages.tex". Lägg till under % Extra.
+%%  Mer plats på titelsida,--> "Essential/Titel.tex", rad 39 och 45/48.
 
 %-----------------------------------------------
-%%                 Nice stuff
+%                  Nice stuff
 %-----------------------------------------------
 
-Hänvisning till \cref{eq:namn}
-\begin{equation} \label{eq:namn}
+Hänvisning till \cref{e:namn}
+\begin{equation} \label{e:namn}
 \end{equation}
 
 
-Hänvisning till \cref{fig:namn}.
+Hänvisning till \cref{f:namn}.
 \begin{figure} [H]
     \centering 
     \includegraphics[width=0.5\textheight]{bild.png}
     \caption{Beskrivande text.}
-    \label{fig:namn}
+    \label{f:namn}
 \end{figure}
 
 
-Hänvisning till \cref{tab:namn}.
+Hänvisning till \cref{t:namn}.
 \begin{table}[H]
 \centering
-\caption{Namn} \label{tab:namn}
+\caption{Namn} \label{t:namn}
 \begin{tabular}{@{} l l l @{}} \toprule
 \textbf{} & \textbf{} & \textbf{} \\
 \midrule
@@ -57,7 +61,7 @@ Hänvisning till \cref{tab:namn}.
 
 
 %-----------------------------------------------
-%%                    Länkar
+%                     Länkar
 %-----------------------------------------------
 % Mattematiska symboler
 % http://tug.ctan.org/info/undergradmath/undergradmath.pdf
@@ -77,5 +81,5 @@ Hänvisning till \cref{tab:namn}.
 % Skriva si enheter / nummer
 % http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/siunitx/siunitx.pdf
 
-% Hur man skriver en rapport
+% Hur man skriver en rapport (LTU)
 % https://www.overleaf.com/latex/templates/lulea-university-of-technology-lab-report-template-tvm-department/xxqzqvnnfwgg
