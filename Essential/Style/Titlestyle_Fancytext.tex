@@ -1,0 +1,37 @@
+%-----------------------------------------------
+%              Titelsida layout
+%-----------------------------------------------
+
+\newgeometry{top=4cm, hmargin=2cm, bottom=1.5cm}
+\begin{titlepage}
+\centering \Huge{Luleå Tekniska Universitet} \\ \vspace{4mm}
+\normalsize{\thecoursecode \\ \thecoursename}
+\vspace{10mm} \\
+\rule{\linewidth}{0.3mm} \\ 
+\vspace{4mm}
+\Huge{\bfseries{\thetitle}} \\
+\vspace{-2.5mm}
+%\Large{\textrm{\thesubtitle}}
+\rule{\linewidth}{0.3mm} \\%[1.5cm]
+\vspace{15mm}
+% Namn
+\normalsize{\textbf{Författare:}} \\
+\vspace{-2.5mm}
+\begin{table}[h]
+\centering\begin{tabular}{l l}
+\theauthor
+\end{tabular}
+\end{table}
+\textbf{Handledare:}\\
+\vspace{-2.5mm}
+\begin{table}[h]\centering\begin{tabular}{l l}\thesupervisor
+\end{tabular}
+\end{table}
+\vfill
+% logga, datum
+\includegraphics[width=0.2\textwidth]{ltu_swe.jpg} \\
+\vspace{0.2cm}
+\textrm{\theinstitution} \\ \vspace{0.05cm}
+{\large \textrm{\today}\\}
+\end{titlepage}
+
