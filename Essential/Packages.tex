@@ -1,5 +1,5 @@
 %-----------------------------------------------
-%          Hugos Template - 2020.05.27
+%        Hugos Template - V. 2021.04.09
 %-----------------------------------------------
 %                   Settings
 %-----------------------------------------------
@@ -8,7 +8,8 @@
 \usepackage[]{graphicx}           % Bilder. [demo] för snabb compile!
 
 %   Extra
-%\usepackage{mhchem}              % Kemiekvationer.
+%\usepackage{mhchem}    % Kemiekvationer.
+%\usepackage{changepage}           % Lokal ändring i margin, \begin{adjustwidth}{-1cm}{-1cm}
 
 
 %-----------------------------------------------
@@ -22,21 +23,21 @@
 
 
 \pagenumbering{gobble}       % Stoppar sidnumrering på titelsida.
-\usepackage{csquotes}        % Quotes.
 \usepackage{mathtools}       % Ekvationer.
+\usepackage{bm}              % Bold matte
 \usepackage[]{geometry}      % Sidlayout.
 \usepackage{float}           % För [H].
 \usepackage[T1]{fontenc}     % Bra för åäö.
+\usepackage{csquotes}        % Fancy Quotes
 \usepackage{microtype}       % Fixar bättre textlayout.
-\usepackage{comment}         % \begin{comment}.
 
-\usepackage[font={small,it},labelfont=bf%
+\usepackage[margin=15pt,font={small},labelfont={bf}%
 ,justification=centering]{caption}      % Snygg figurtext.
 \usepackage{booktabs}                   % Snygga Tabeller.
-\usepackage{longtable}                  % Långa tabeller.
+\usepackage{longtable}                  % Långa tabeller, flera sidor.
 \setlength{\abovecaptionskip}{3pt}      % Flyttar tabelltext närmare.
-\renewcommand{\arraystretch}{1.2}       % Gör tabeller större.
-\setlength{\parindent}{0cm}             % Tar bort indent på ny rad.
+\renewcommand{\arraystretch}{1.2}       % Gör tabeller  större.
+\setlength{\parindent}{0cm}             % Tar bort "indent" på ny rad.
 \usepackage[none]{hyphenat}             % Slutar dela upp ord.
 
 \bibliography{Essential/References.bib} % Mapp för Källor.
@@ -66,27 +67,35 @@ range-phrase=--,range-units=single,exponent-product=\cdot}
 %-----------------------------------------------
 %                 New commands                
 %-----------------------------------------------
-% Använd för radbyte.
+% Använd för radbyte. \n
 \newcommand{\n}{\vskip 1em}
 
-% Används för matlab fil.
+% Bold matte och text (Automatisk) ex. \B{TEXT och } $\B{\alpha}$
+\newcommand*{\B}[1]{\ifmmode\bm{#1}\else\textbf{#1}\fi}
+
+% Partial Derivative. \pde{a}{b}
+\newcommand{\pde}[2]{\frac{\partial #1}{\partial #2}}
+
+% Använd för matlab fil.
 \newcommand{\matlabfile}[1]
 {\UseRawInputEncoding\hyphenpenalty=50\exhyphenpenalty=50\lstinputlisting[style = Matlab-editor,basicstyle = \mlttfamily]{#1}}
 
 % Använd för matlab text.
 \lstnewenvironment{matlab}
-{\UseRawInputEncoding\hyphenpenalty=50\exhyphenpenalty=50\lstset{style = Matlab-editor,basicstyle = \mlttfamily}}
-{}
+{\UseRawInputEncoding\hyphenpenalty=50\exhyphenpenalty=50\lstset{style = Matlab-editor,basicstyle = \mlttfamily}}{}
 
 % Kollar om det finns .tex fil Från Bilaga_1 till Bilaga_15.
 % Genererar sida om det finns. Öka från 15 vid behov.
-\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,15} {
+\edef\bilagamax{15}
+\newcommand{\bilagaloop}{\foreach \i in {1, 2, 3, ...,\bilagamax} {
     \edef\FileName{Sections/Bilagor/Bilaga_\i}%
     \IfFileExists{\FileName.tex}{%
-    \newpage%
-    \setcounter{page}{1}%
-    \input{\FileName.tex}%
-}{}}}
+        \newpage%
+        \setcounter{page}{1}%
+        \input{\FileName.tex}%
+    }{}
+}\IfFileExists{Sections/Bilagor/Bilaga_\bilagamax.tex} {\errmessage{MAX ANTAL BILAGOR, ÖKA "bilagamax" i Packages.tex}}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Creative Commons CC BY 4.0, Hugo Laestander %%%%

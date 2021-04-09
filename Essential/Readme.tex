@@ -22,10 +22,11 @@ Lägg till referenser i "Essential/References.bib".
 %   Har du idéer på förbättringar?
 https://github.com/ReleaseTheKnowledge/LTU-Latex-Template/issues
 
+%%  SKÖNA COMMANDS   --> "Essential/Packages.tex". Sida 70 och ner!
 %%  SNABB COMPILE!, --> "Essential/Packages.tex". Bra för många bilder!
 %%  Ändra språk,    --> "Essential/Packages.tex".
 %%  Fler packages,  --> "Essential/Packages.tex". Lägg till under % Extra.
-%%  Mer plats på titelsida,--> "Essential/Titel.tex", rad 39 och 45/48.
+%%  Mer plats på titelsida,--> "Essential/Titel.tex", Ändra "thetitlestyle".
 
 %-----------------------------------------------
 %                  Nice stuff
@@ -39,7 +40,7 @@ Hänvisning till \cref{e:namn}
 Hänvisning till \cref{f:namn}.
 \begin{figure} [H]
     \centering 
-    \includegraphics[width=0.5\textheight]{bild.png}
+    \includegraphics[width=0.75\textwidth]{bild.png}
     \caption{Beskrivande text.}
     \label{f:namn}
 \end{figure}
@@ -50,7 +51,7 @@ Hänvisning till \cref{t:namn}.
 \centering
 \caption{Namn} \label{t:namn}
 \begin{tabular}{@{} l l l @{}} \toprule
-\textbf{} & \textbf{} & \textbf{} \\
+\B{} & \B{} & \B{} \\
 \midrule
      &  &  \\
      &  &  \\
@@ -83,3 +84,6 @@ Hänvisning till \cref{t:namn}.
 
 % Hur man skriver en rapport (LTU)
 % https://www.overleaf.com/latex/templates/lulea-university-of-technology-lab-report-template-tvm-department/xxqzqvnnfwgg
+
+% Kolla antal ord och tecken.
+% https://wordcounter.net/character-count
